@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">kanban</div>
+      <div class="boards">
+        <h3>ALL BOARDS (3)</h3>
+        <ul>
+          <li class="active">Platform Launch</li>
+          <li>Marketing Plan</li>
+          <li>Roadmap</li>
+        </ul>
+        <button id="createBoard">+ Create New Board</button>
+      </div>
+      <div class="theme-toggle">
+        <span>🌞</span>
+        <label class="switch">
+          <input type="checkbox" id="themeSwitcher" />
+          <span class="slider"></span>
+        </label>
+        <span>🌙</span>
+      </div>
+      <button id="hideSidebar">Hide Sidebar</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header>
+        <h1>Platform Launch</h1>
+        <button id="addTaskBtn">+ Add New Task</button>
+      </header>
+
+      <div class="board">
+        <!-- To Do Column -->
+        <div class="column">
+          <h2>TODO (0)</h2>
+          <div class="task-list" id="todoList"></div>
+        </div>
+
+        <!-- Doing Column -->
+        <div class="column">
+          <h2>DOING (0)</h2>
+          <div class="task-list" id="doingList"></div>
+        </div>
+
+        <!-- Done Column -->
+        <div class="column">
+          <h2>DONE (0)</h2>
+          <div class="task-list" id="doneList"></div>
+        </div>
+
+        <!-- New Column Button -->
+        <div class="column new-column">
+          <button id="newColumnBtn">+ New Column</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Add/Edit Task -->
+  <div id="taskModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 id="modalTitle">Add Task</h2>
+      <form id="taskForm">
+        <input type="text" id="taskTitle" placeholder="Task Title" required />
+        <textarea id="taskDescription" placeholder="Description"></textarea>
+        <label>Subtasks</label>
+        <div id="subtasksContainer"></div>
+        <button type="button" id="addSubtask">+ Add Subtask</button>
+        <label>Status</label>
+        <select id="taskStatus">
+          <option value="todo">Todo</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
+        <button type="submit">Save Task</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
